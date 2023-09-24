@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { useContext } from "react";
 import { MdLock, MdBookmark } from "react-icons/md";
+import { AuthContext } from "../contex/AuthContext";
 
 const Sidebar = () => {
-  const recentItems = (topic:string) => {
+  const recentItems = (topic: string) => {
     return (
       <div className="flex  text-[13px] font-semibold py-1 px-4 cursor-pointer hover:bg-gray-200  text-gray-500">
         <span className="pr-1">#</span> <p>{topic}</p>
@@ -10,6 +12,10 @@ const Sidebar = () => {
     );
   };
 
+  const {
+    state: { user },
+  } = useContext(AuthContext);
+  const auth: any = user;
   return (
     <div className="hidden md:block sidebar top-5 pt-5  sticky w-56  h-fit   text-center">
       <div className="sidebar_top bg-white  border-b-0 border-gray-200 rounded-lg ">
@@ -28,10 +34,8 @@ const Sidebar = () => {
             height={100}
             className="mb-2 h-16 w-16  rounded-full object-center"
           />
-          <h2 className="font-semibold text-lg">Abdou Jammeh</h2>
-          <p className="text-xs text-gray-500 py-2">
-            software engineer
-          </p>
+          <h2 className="font-semibold text-lg">{auth?.name}</h2>
+          <p className="text-xs text-gray-500 mt-1">software engineer</p>
         </div>
         <div className="sidebar_stats   font-semibold  border-t border-gray-200  w-full">
           <div className="py-4 text-gray-500">

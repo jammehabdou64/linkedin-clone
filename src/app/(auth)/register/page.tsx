@@ -34,7 +34,8 @@ const Register = () => {
       setButtonDisalbe(true);
       const { data } = await axios.post("/api/auth/register", formData);
       if (data.success) {
-        return router.push("/");
+        router.push("/");
+        return;
       }
     } catch (error: any) {
       console.log(error);
@@ -73,7 +74,7 @@ const Register = () => {
             className="bg-white rounded-lg w-[420px] mx-auto p-6 mt-4"
             onSubmit={submit}
           >
-              <Toaster />
+            <Toaster />
             <div>
               <label
                 htmlFor="name"
@@ -87,7 +88,6 @@ const Register = () => {
                 name="name"
                 value={formData.name}
                 onChange={InputChangeHandler}
-
               />
             </div>
 
@@ -104,7 +104,6 @@ const Register = () => {
                 name="email"
                 value={formData.email}
                 onChange={InputChangeHandler}
-
               />
             </div>
             <div className="mt-4">
@@ -124,7 +123,6 @@ const Register = () => {
                   name="password"
                   value={formData.password}
                   onChange={InputChangeHandler}
-  
                 />
                 <button
                   type="button"
@@ -146,7 +144,10 @@ const Register = () => {
               </p>
             </div>
             <div className="button mt-2">
-              <button disabled={buttonDisabled} className="bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-3 w-full rounded-full">
+              <button
+                disabled={buttonDisabled}
+                className="bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-3 w-full rounded-full"
+              >
                 Agree and Join
               </button>
             </div>
@@ -157,7 +158,10 @@ const Register = () => {
               </p>
             </div>
             <div className="google_auth mt-4 pt-1">
-              <button type="button" className="flex items-center justify-center gap-2 w-full border p-2  border-gray-700 rounded-full">
+              <button
+                type="button"
+                className="flex items-center justify-center gap-2 w-full border p-2  border-gray-700 rounded-full"
+              >
                 <Image
                   src={"/google.svg"}
                   alt="google"

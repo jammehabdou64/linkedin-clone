@@ -3,13 +3,11 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {useRouter} from "next/navigation"
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
-
 const Login = () => {
-
   const [formData, setFormData] = React.useState({
     email: "",
     password: "",
@@ -31,7 +29,8 @@ const Login = () => {
       event.preventDefault();
       const { data } = await axios.post("/api/auth/login", formData);
       if (data.success) {
-        return router.push("/");
+        router.push("/");
+        return;
       }
     } catch (error: any) {
       toast.error("Invalid credentials");
@@ -69,7 +68,7 @@ const Login = () => {
             className="bg-white rounded-lg w-[375px] shadow-2xl mx-auto p-6 mt-4"
             onSubmit={submit}
           >
-        <Toaster />
+            <Toaster />
             <h2 className="font-extrabold text-3xl pt-2 mt-2">Sign in</h2>
             <p className="text-sm mb-5 mt-1">
               Stay updated on your professional world
@@ -115,13 +114,19 @@ const Login = () => {
               </Link>
             </div>
             <div className="button mt-2">
-              <button disabled={buttonDisable} className="bg-blue-600 hover:bg-blue-800 text-white font-bold p-4 w-full rounded-full">
+              <button
+                disabled={buttonDisable}
+                className="bg-blue-600 hover:bg-blue-800 text-white font-bold p-4 w-full rounded-full"
+              >
                 Sign in
               </button>
             </div>
 
             <div className="google_auth mt-4 pt-1">
-              <button type="button" className="flex items-center justify-center gap-2 w-full border p-3  border-gray-700 rounded-full">
+              <button
+                type="button"
+                className="flex items-center justify-center gap-2 w-full border p-3  border-gray-700 rounded-full"
+              >
                 <Image
                   src={"/google.svg"}
                   alt="google"
@@ -135,7 +140,10 @@ const Login = () => {
               </button>
             </div>
             <div className="apple_auth mt-4 pt-1">
-              <button type="button" className="flex items-center justify-center gap-2 w-full border p-3  border-gray-700 rounded-full">
+              <button
+                type="button"
+                className="flex items-center justify-center gap-2 w-full border p-3  border-gray-700 rounded-full"
+              >
                 <Image
                   src={"/apple.svg"}
                   alt="google"

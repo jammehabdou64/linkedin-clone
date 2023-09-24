@@ -2,8 +2,9 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
 import { MdLock } from "react-icons/md";
+import { AuthContext } from "../contex/AuthContext";
 
 const Modal = () => {
   const router = useRouter();
@@ -13,6 +14,11 @@ const Modal = () => {
       return router.push("/login");
     } catch (error) {}
   };
+
+  const {
+    state: { user },
+  } = useContext(AuthContext);
+  const auth: any = user;
 
   return (
     <div className="absolute mt-4 -ml-56 z-40 bg-white shadow-md w-64 p-2">
@@ -25,7 +31,7 @@ const Modal = () => {
           className="mb-2 h-14 w-14  rounded-full object-center"
         />
         <div>
-          <h2 className="font-semibold ">Abdou Jammeh</h2>
+          <h2 className="font-semibold ">{auth?.name}</h2>
           <p className="text-sm text-gray-500">software engineer</p>
         </div>
       </div>
