@@ -60,12 +60,12 @@ const Login = () => {
         />
       </div>
 
-      <div className="form_container  flex justify-center items-center xl:mt-4 px-2">
+      <div className="form_container h-full flex justify-center items-center  px-2">
         <div className="max-w-2xl">
           <form
             action=""
             method="post"
-            className="bg-white rounded-lg w-[375px] shadow-2xl mx-auto p-6 mt-4"
+            className="bg-white rounded-lg w-[375px] shadow-2xl mx-auto p-6 "
             onSubmit={submit}
           >
             <Toaster />
