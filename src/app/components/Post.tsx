@@ -5,30 +5,43 @@ import {
   MdOutlineShare,
   MdOutlineThumbUp,
 } from "react-icons/md";
+import Moment from "react-moment";
 
-const Post = () => {
+
+type PostType={
+  author?:any,
+  _id?:string,
+  text?:string,
+  createdAt?:string
+}
+
+
+const Post = ({post}:{post:PostType}) => {
   return (
     <div className="post rounded-xl bg-white p-4 mt-3 mb-3">
       <div className="post_header flex items-center mb-3">
         <Image
-          src={"/abdou.jpg"}
+          src={"/images.png"}
           alt="post author"
           width={70}
           height={60}
           className="w-12 h-12 rounded-full"
         />
         <div className="post_info ml-3">
-          <h3 className="font-extrabold text-[15px]">Abdou Jammeh</h3>
+          <div className="flex items-center gap-1">
+
+          <h3 className="font-extrabold text-[15px]">{post?.author?.name}</h3>
+          <span className="text-sm text-gray-500"><Moment fromNow>
+            {post?.createdAt}
+            </Moment></span>
+          </div>
           <p className="text-sm text-gray-500">
-            Lorem ipsum dolor sit amet consectetur
+            software engineer
           </p>
         </div>
       </div>
       <div className="post_body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-        dicta necessitatibus eius iste fugit corporis autem mollitia quasi saepe
-        perferendis, sequi architecto explicabo impedit repellat voluptate et
-        aliquid reiciendis qui?
+       {post?.text}
       </div>
       <div className="post_button flex justify-evenly mt-1 pt-1">
         <div className="flex p-2 items-center cursor-pointer hover:bg-gray-200">

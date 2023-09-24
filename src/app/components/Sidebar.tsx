@@ -19,18 +19,18 @@ const Sidebar = () => {
             alt="cover-img"
             width={50}
             height={10}
-            className="-mb-5 object-cover h-[60px] w-full rounded-tl-lg rounded-tr-lg"
+            className="-mb-7 object-cover h-[60px] w-full rounded-tl-lg rounded-tr-lg"
           />
           <Image
-            src={"/abdou.jpg"}
+            src={"/images.png"}
             alt="user"
             width={100}
             height={100}
             className="mb-2 h-16 w-16  rounded-full object-center"
           />
           <h2 className="font-semibold text-lg">Abdou Jammeh</h2>
-          <p className="text-xs text-gray-500 mt-1">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <p className="text-xs text-gray-500 py-2">
+            software engineer
           </p>
         </div>
         <div className="sidebar_stats   font-semibold  border-t border-gray-200  w-full">

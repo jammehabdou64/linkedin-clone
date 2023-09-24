@@ -17,8 +17,8 @@ export const GET = async (request: NextRequest) => {
       );
     }
     const posts = await Post.find({})
-      .populate("author", "name email username")
-      .sort({ createdAt: "desc" });
+    .populate("author")
+     .sort({ createdAt: "desc" });
     return NextResponse.json({
       message: posts,
       success: true,
@@ -43,10 +43,11 @@ export const POST = async (request: NextRequest) => {
     }
     const post = new Post();
     const req = await request.json();
+    const authorId = await getAuth(request)
+    if (req.text && authorId) {
 
-    if (req.text) {
       post.text = req.text;
-      post.author = await getAuth(request);
+      post.author = authorId;
       const savedPost = await post.save();
       const newPost = await Post.findById(savedPost?._id.toString()).populate(
         "author",
@@ -59,7 +60,7 @@ export const POST = async (request: NextRequest) => {
           )
         : NextResponse.json(
             { message: "Post not added", success: false },
-            { status: 500 }
+            { status: 400 }
           );
     }
   } catch (error: any) {
