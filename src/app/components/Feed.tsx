@@ -17,9 +17,7 @@ const Feed = () => {
     const getPosts = async () => {
       try {
         const { data } = await axios.get("/api/posts");
-        console.log(data);
         if (data.success) {
-          console.log(data);
           return setPost([...data.message]);
         }
       } catch (error) {
