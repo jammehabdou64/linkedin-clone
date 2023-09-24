@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <main className="app_body flex justify-center max-w-7xl px-2 mx-auto sm:px-10 xl:px-20   w-full">
+    <main className="  app_body flex justify-center max-w-7xl px-2 mx-auto sm:px-10 xl:px-20   w-full">
       <Sidebar />
       <Feed />
       <Widget />

@@ -4,6 +4,7 @@ import {
   MdCardTravel,
   MdHome,
   MdMessage,
+  MdMoreHoriz,
   MdNotifications,
   MdSearch,
   MdSupervisorAccount,
@@ -15,9 +16,9 @@ const Header = () => {
   return (
     <header className=" bg-white  border-b border-gray-50  w-full  py-2  sticky top-0 z-[999]">
    
-   <div className="flex max-w-7xl mx-auto md:px-10 lg:px-6 xl:px-20">
+   <div className="flex max-w-7xl px-4 mx-auto md:px-10 lg:px-6 xl:px-20">
 
-      <nav className="header_left  flex mr-10">
+      <nav className="header_left  flex sm:mr-10">
         {/* img */}
         <Image
           src={"/linkedin.png"}
@@ -58,8 +59,17 @@ const Header = () => {
             </span>
           </h3>
         </div>
+        <span className="hidden xs:inline-block">
         <HeaderOption title={"for Business"} Icon={MdViewCompact} />
+          </span>
+          <span className="hidden xs:inline-block">
+
         <HeaderOption title={"post a job"} Icon={MdAllInbox} />
+          </span>
+          <span className="xs:hidden" >
+          <MdMoreHoriz size={25}/>
+
+          </span>
       </nav>
    </div>
     </header>

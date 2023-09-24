@@ -9,7 +9,7 @@ import Post from "./Post";
 
 const Feed = () => {
   return (
-    <div className="feed flex-1 md:max-w-[550px] lg:max-w-[600px] mx-5 mt-5">
+    <div className="feed mx-auto flex-1 md:max-w-[550px] lg:max-w-[600px] px-3 sm:px-0 sm:mx-5 mt-5">
       <div className="feed_input_container bg-white p-3  mb-5 rounded-xl">
         <div className="flex gap-2">
           <Image
@@ -37,10 +37,10 @@ const Feed = () => {
             <MdImage className="text-blue-500" size={25} />
             <p className="text-sm text-gray-500 font-bold">Photo</p>
           </div>
-          <div className="flex p-2 gap items-center cursor-pointer hover:bg-gray-200">
+          {/* <div className="flex p-2 gap items-center cursor-pointer hover:bg-gray-200">
             <MdSubscriptions className="text-green-600" size={25} />
             <p className="text-sm text-gray-500 font-bold">Video</p>
-          </div>
+          </div> */}
           <div className="flex p-2 gap items-center cursor-pointer hover:bg-gray-200">
             <MdEvent className="text-yellow-600" size={25} />
             <p className="text-sm text-gray-500 font-bold">Event</p>
