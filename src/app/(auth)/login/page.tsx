@@ -29,8 +29,7 @@ const Login = () => {
       event.preventDefault();
       const { data } = await axios.post("/api/auth/login", formData);
       if (data.success) {
-        router.push("/");
-        return;
+        return window.location.replace("/");
       }
     } catch (error: any) {
       toast.error("Invalid credentials");

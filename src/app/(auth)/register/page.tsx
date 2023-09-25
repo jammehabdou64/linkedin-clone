@@ -34,8 +34,7 @@ const Register = () => {
       setButtonDisalbe(true);
       const { data } = await axios.post("/api/auth/register", formData);
       if (data.success) {
-        router.push("/");
-        return;
+        return window.location.replace("/");
       }
     } catch (error: any) {
       console.log(error);
