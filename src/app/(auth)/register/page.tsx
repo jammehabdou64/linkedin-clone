@@ -63,7 +63,7 @@ const Register = () => {
         />
       </div>
 
-      <div className="form_container h-full flex justify-center items-center px-2">
+      <div className="form_container h-full mt-12 md:mt-20 flex justify-center items-center px-2">
         <div className="max-w-2xl">
           <h2 className="text-4xl font-medium">
             Make the most of your professional life
