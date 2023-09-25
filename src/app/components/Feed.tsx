@@ -34,9 +34,9 @@ const Feed = () => {
   }, []);
 
   return (
-    <div className="feed mx-auto flex-1 md:max-w-[550px] lg:max-w-[600px] px-3 sm:px-0 sm:mx-5 mt-5">
+    <div className="feed w-full flex-1 md:max-w-[550px] lg:max-w-[600px]  sm:px-0 sm:mx-5 mt-5">
       <div className="feed_input_container bg-white p-3  mb-5 rounded-xl">
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full">
           <Image
             src={"/images.png"}
             width={60}
@@ -58,7 +58,7 @@ const Feed = () => {
             </form>
           </div>
         </div>
-        <div className="input_option flex justify-between px-4 pt-1 mt-1">
+        <div className="input_option flex justify-between sm:px-4 pt-1 mt-1">
           <div className="flex p-2 gap items-center cursor-pointer hover:bg-gray-200">
             <MdImage className="text-blue-500" size={25} />
             <p className="text-sm text-gray-500 font-bold">Photo</p>

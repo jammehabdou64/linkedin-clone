@@ -42,7 +42,11 @@ export default function Home() {
       {loading ? (
         <Loading />
       ) : (
-        <main className="  app_body flex justify-center max-w-7xl px-2 mx-auto sm:px-10 xl:px-20   w-full">
+        <main
+          className={`${
+            showModal ? "overflow-hidden " : ""
+          } app_body flex justify-center max-w-7xl px-2 mx-auto sm:px-10 xl:px-20   w-full`}
+        >
           {/*  */}
           {showModal ? <PostFeedModal auth={user} /> : ""}
           {/*  */}

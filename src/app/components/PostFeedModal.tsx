@@ -56,8 +56,8 @@ const PostFeedModal = ({ auth }: { auth: AuthType }) => {
   }, [formData]);
 
   return (
-    <div className="post-feed-modal absolute top-0 h-screen w-full  z-[999]">
-      <div className="modal-container bg-white mt-10 mx-auto md:w-[750px] rounded-md ">
+    <div className="post-feed-modal absolute top-0 h-screen w-full px-3 xs:px-0  z-[999]">
+      <div className=" modal-container bg-white mt-10 mx-auto md:w-[750px] rounded-md ">
         <Toaster />
         <div className="flex p-4 justify-between">
           <div className="flex items-center">
@@ -70,7 +70,7 @@ const PostFeedModal = ({ auth }: { auth: AuthType }) => {
                 alt="user"
                 width={100}
                 height={100}
-                className="mb-2 h-14 w-14  rounded-full object-center"
+                className="mb-2 w-12 h-12 xs:h-14 xs:w-14  rounded-full object-center"
               />
               <div>
                 <h2 className="font-semibold ">{auth?.name}</h2>
@@ -95,7 +95,7 @@ const PostFeedModal = ({ auth }: { auth: AuthType }) => {
             onChange={inputChangeHandler}
           />
         </div>
-        <div className="emoji mb-5 mt-10 p-4">
+        <div className="emoji mb-5 mt-4 xs:mt-10 p-4">
           <MdOutlineEmojiEmotions size={24} className="text-gray-500" />
         </div>
         <div className="border-b border-gray-300">

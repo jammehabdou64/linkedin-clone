@@ -53,7 +53,7 @@ const Register = () => {
   };
   return (
     <div className="bg-gray-100 w-full h-screen ">
-      <div className="px-10 pt-5 ml-5">
+      <div className="md:px-10 pt-5 px-3 md:ml-5">
         <Image
           src={"/logo.svg"}
           alt="logo"
@@ -63,15 +63,15 @@ const Register = () => {
         />
       </div>
 
-      <div className="form_container h-full mt-12 md:mt-20 flex justify-center items-center px-2">
-        <div className="max-w-2xl">
-          <h2 className="text-4xl font-medium">
+      <div className="form_container h-full mt-12 md:mt-10 lg:mt-3 flex justify-center items-center xs:px-4">
+        <div className="px-2 w-full xs:w-[450px] sm:w-[42rem] xs:px-10 sm:px-0">
+          <h2 className="text-lg mt-10 xs:text-xl sm:text-4xl xs:font-medium">
             Make the most of your professional life
           </h2>
           <form
             action=""
             method="post"
-            className="bg-white rounded-lg w-[420px] mx-auto p-6 mt-4"
+            className="bg-white rounded-lg w-full xs:w-[400px] sm:w-[500px] mx-auto p-6 mt-4"
             onSubmit={submit}
           >
             <Toaster />
@@ -115,7 +115,7 @@ const Register = () => {
               </label>
               <div
                 id="password"
-                className=" hover:bg-gray-200 border border-gray-600 gap-1 flex justify-between  px-2 p-1 rounded-md"
+                className="relative top-0 right-0 border border-gray-600 gap-1   p-1 rounded-md"
               >
                 <input
                   type={showPassword ? "text" : "password"}
@@ -127,7 +127,7 @@ const Register = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="font-bold text-blue-600 border-none outline-none"
+                  className="absolute z-20 top-0 right-1 font-semibold  sm:font-bold p-2 text-blue-600 border-none outline-none -ml-2"
                 >
                   show
                 </button>

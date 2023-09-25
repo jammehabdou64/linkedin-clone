@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div className="bg-white w-full h-screen">
-      <div className="px-10 pt-5 ml-5">
+      <div className="sm:px-10 pt-5 px-4 sm:ml-5">
         <Image
           src={"/logo.svg"}
           alt="logo"
@@ -60,12 +60,12 @@ const Login = () => {
         />
       </div>
 
-      <div className="form_container h-full flex justify-center items-center  px-2">
-        <div className="max-w-2xl">
+      <div className="form_container h-full flex justify-center items-center  sm:px-2">
+        <div className="px-3 w-full xs:w-[450px] sm:max-w-2xl xs:px-10 sm:px-0">
           <form
             action=""
             method="post"
-            className="bg-white rounded-lg w-[375px] shadow-2xl mx-auto p-6 "
+            className="bg-white rounded-lg w-full sm:w-[375px] shadow-2xl mx-auto py-5 px-2  xs:p-6 "
             onSubmit={submit}
           >
             <Toaster />
@@ -86,7 +86,7 @@ const Login = () => {
             <div className="mt-4">
               <div
                 id="password"
-                className="  border border-gray-600 gap-1 flex justify-between  px-2 p-1 rounded-md"
+                className=" relative top-0 right-0 border border-gray-600 gap-1   p-1 rounded-md"
               >
                 <input
                   type={showPassword ? "text" : "password"}
@@ -99,7 +99,7 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="font-bold p-2 text-blue-600 border-none outline-none"
+                  className="absolute bg-white z-20 top-0 right-1 font-semibold  sm:font-bold p-2 text-blue-600 border-none outline-none -ml-2"
                 >
                   show
                 </button>
@@ -108,7 +108,7 @@ const Login = () => {
             <div className="forgotten_password my-4">
               <Link
                 href={"/"}
-                className="text-blue-600 hover:bg-blue-200 hover:rounded-full  p-2 hover:underline font-semibold "
+                className="text-blue-600 hover:bg-blue-200 hover:rounded-full  p-2 hover:underline font-medium xs:font-semibold "
               >
                 Forgot password?
               </Link>
@@ -116,7 +116,7 @@ const Login = () => {
             <div className="button mt-2">
               <button
                 disabled={buttonDisable}
-                className="bg-blue-600 hover:bg-blue-800 text-white font-bold p-4 w-full rounded-full"
+                className="bg-blue-600 hover:bg-blue-800 text-white font-bold p-2 xs:p-4 w-full rounded-full"
               >
                 Sign in
               </button>
@@ -125,7 +125,7 @@ const Login = () => {
             <div className="google_auth mt-4 pt-1">
               <button
                 type="button"
-                className="flex items-center justify-center gap-2 w-full border p-3  border-gray-700 rounded-full"
+                className="flex items-center justify-center gap-2 w-full border p-2 xs:p-3 border-gray-700 rounded-full"
               >
                 <Image
                   src={"/google.svg"}
@@ -142,7 +142,7 @@ const Login = () => {
             <div className="apple_auth mt-4 pt-1">
               <button
                 type="button"
-                className="flex items-center justify-center gap-2 w-full border p-3  border-gray-700 rounded-full"
+                className="flex items-center justify-center gap-2 w-full border p-2 xs:p-3 border-gray-700 rounded-full"
               >
                 <Image
                   src={"/apple.svg"}
