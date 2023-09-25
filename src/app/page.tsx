@@ -7,10 +7,19 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "./contex/AuthContext";
 import Loading from "./components/Loading";
+import PostFeedModal from "./components/PostFeedModal";
+import { PostFeedModalContext } from "./contex/PostFeedModalContext";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const { state, dispatch } = useContext(AuthContext);
+  const {
+    state: { user },
+    dispatch,
+  } = useContext(AuthContext);
+
+  const {
+    state: { showModal },
+  } = useContext(PostFeedModalContext);
 
   useEffect(() => {
     const getAuth = async () => {
@@ -34,6 +43,9 @@ export default function Home() {
         <Loading />
       ) : (
         <main className="  app_body flex justify-center max-w-7xl px-2 mx-auto sm:px-10 xl:px-20   w-full">
+          {/*  */}
+          {showModal ? <PostFeedModal auth={user} /> : ""}
+          {/*  */}
           <Sidebar />
           <Feed />
           <Widget />

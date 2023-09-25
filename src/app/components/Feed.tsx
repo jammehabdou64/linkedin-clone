@@ -2,23 +2,28 @@
 import Image from "next/image";
 import { MdCalendarViewDay, MdEvent, MdImage } from "react-icons/md";
 import Post from "./Post";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+
 import Loading from "./Loading";
+import { PostsContext } from "../contex/PostContext";
+import { PostFeedModalContext } from "../contex/PostFeedModalContext";
 
 const Feed = () => {
-  const [formData, setFormData] = useState({
-    text: "",
-  });
-  const [posts, setPost] = useState(Array<any>);
+  const {
+    state: { posts },
+    dispatch,
+  } = useContext(PostsContext);
+
+  const postFeed = useContext(PostFeedModalContext);
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getPosts = async () => {
       try {
         const { data } = await axios.get("/api/posts");
         if (data.success) {
-          return setPost([...data.message]);
+          return dispatch({ type: "GET_ALL_POSTS", payload: data.message });
         }
       } catch (error) {
       } finally {
@@ -28,28 +33,8 @@ const Feed = () => {
     getPosts();
   }, []);
 
-  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
-    try {
-      event.preventDefault();
-      const { data } = await axios.post("/api/posts", formData);
-      if (data.success) {
-        setFormData({ ...formData, text: "" });
-        setPost([data.message, ...posts]);
-      }
-    } catch (error: any) {
-      toast.error("An error occurs");
-    }
-  };
-
-  const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
   return (
     <div className="feed mx-auto flex-1 md:max-w-[550px] lg:max-w-[600px] px-3 sm:px-0 sm:mx-5 mt-5">
-      <Toaster />
       <div className="feed_input_container bg-white p-3  mb-5 rounded-xl">
         <div className="flex gap-2">
           <Image
@@ -60,18 +45,16 @@ const Feed = () => {
             className="w-12 h-12 rounded-full object-center"
           />
           <div className="feed_input border flex-1  border-gray-400 rounded-[30px] pl-4 flex p-[11px] text-gray-500">
-            <form action="" className="w-full flex" onSubmit={submit}>
+            <form
+              action=""
+              className="w-full flex "
+              onClick={() => postFeed.dispatch({ type: "OPEN_MODAL" })}
+            >
               <input
-                type="text"
+                type=""
                 className="outline-none flex-1 text-sm font-semibold text-gray-700"
                 placeholder="start a post "
-                name="text"
-                value={formData.text}
-                onChange={inputChangeHandler}
               />
-              <button type="submit" className="hidden">
-                send
-              </button>
             </form>
           </div>
         </div>
@@ -80,10 +63,7 @@ const Feed = () => {
             <MdImage className="text-blue-500" size={25} />
             <p className="text-sm text-gray-500 font-bold">Photo</p>
           </div>
-          {/* <div className="flex p-2 gap items-center cursor-pointer hover:bg-gray-200">
-            <MdSubscriptions className="text-green-600" size={25} />
-            <p className="text-sm text-gray-500 font-bold">Video</p>
-          </div> */}
+
           <div className="flex p-2 gap items-center cursor-pointer hover:bg-gray-200">
             <MdEvent className="text-yellow-600" size={25} />
             <p className="text-sm text-gray-500 font-bold">Event</p>
@@ -99,7 +79,7 @@ const Feed = () => {
         {loading ? (
           <Loading />
         ) : (
-          posts.map((post, index) => <Post post={post} key={index} />)
+          posts?.map((post, index) => <Post post={post} key={index} />)
         )}
       </div>
     </div>
