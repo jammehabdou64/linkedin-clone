@@ -120,43 +120,8 @@ const Login = () => {
                 Sign in
               </button>
             </div>
-
-            <div className="google_auth mt-4 pt-1">
-              <button
-                type="button"
-                className="flex items-center justify-center gap-2 w-full border p-2 xs:p-3 border-gray-700 rounded-full"
-              >
-                <Image
-                  src={"/google.svg"}
-                  alt="google"
-                  width={50}
-                  height={50}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-gray-700">
-                  Continue with Google{" "}
-                </span>
-              </button>
-            </div>
-            <div className="apple_auth mt-4 pt-1">
-              <button
-                type="button"
-                className="flex items-center justify-center gap-2 w-full border p-2 xs:p-3 border-gray-700 rounded-full"
-              >
-                <Image
-                  src={"/apple.svg"}
-                  alt="google"
-                  width={50}
-                  height={50}
-                  className="w-4 h-4"
-                />
-                <span className=" font-bold text-gray-700">
-                  Continue with Apple{" "}
-                </span>
-              </button>
-            </div>
           </form>
-          <p className="text-center  my-4 pb-8">
+          <p className="text-center  my-4 pb-14">
             New to LinkedIn?{" "}
             <Link href={"/register"} className="text-blue-600 font-semibold">
               Join now

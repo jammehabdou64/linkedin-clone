@@ -150,29 +150,6 @@ const Register = () => {
                 Agree and Join
               </button>
             </div>
-            <div className="my-2 mt-3 pt-3">
-              <hr className="text-gray-600 mt-3" />
-              <p className="text-center -mt-[12px] bg-white w-14 mx-auto px-2">
-                or
-              </p>
-            </div>
-            <div className="google_auth mt-4 pt-1">
-              <button
-                type="button"
-                className="flex items-center justify-center gap-2 w-full border p-2  border-gray-700 rounded-full"
-              >
-                <Image
-                  src={"/google.svg"}
-                  alt="google"
-                  width={50}
-                  height={50}
-                  className="w-4 h-4"
-                />
-                <span className="text-sm text-gray-700">
-                  Continue with Google{" "}
-                </span>
-              </button>
-            </div>
 
             <p className="mt-7 text-center">
               Already on LinkedIn?{" "}
